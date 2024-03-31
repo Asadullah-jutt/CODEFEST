@@ -4,18 +4,20 @@
  */
 package com.mycompany.mavenproject1;
 import javax.swing.JOptionPane;
+import org.w3c.dom.events.MouseEvent;
 import com.mycompany.mavenproject1.database.Userdata;
 import java.awt.Color;
-import static com.mycompany.mavenproject1.MainRunner.comparestring;
+import java.awt.Font;
+
 /**
  *
  * @author apple
  */
+
 public class LoginGUI extends javax.swing.JFrame {
 
-    /**
-     * Creates new formLoginf
-     */
+
+
     boolean flag = false ;
     String name ,username , email , role , password ; 
     database db  = database.getInstance();
@@ -24,6 +26,7 @@ public class LoginGUI extends javax.swing.JFrame {
     {
         
         initComponents();
+        // initCustomUI();
     }
     public String getLoginName()
     {
@@ -33,6 +36,7 @@ public class LoginGUI extends javax.swing.JFrame {
     {
         return username;
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,6 +47,7 @@ public class LoginGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -57,9 +62,10 @@ public class LoginGUI extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(770, 570));
@@ -87,7 +93,7 @@ public class LoginGUI extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(179, Short.MAX_VALUE)
+                .addContainerGap(178, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
@@ -98,6 +104,7 @@ public class LoginGUI extends javax.swing.JFrame {
         jPanel2.setBounds(20, 20, 300, 500);
 
         jPanel1.setBackground(new java.awt.Color(231, 231, 231));
+        jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel3.setFont(new java.awt.Font("Kohinoor Bangla", 1, 18)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -138,27 +145,38 @@ public class LoginGUI extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 102));
-        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        jButton1.setText("Register");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         jButton2.setBackground(new java.awt.Color(153, 255, 255));
         jButton2.setText("Want to Login?");
+        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.setContentAreaFilled(false);
+        jButton2.setOpaque(true);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        jCheckBox1.setText("Participant");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox2.setText("Host");
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setBackground(new java.awt.Color(255, 255, 51));
+        jButton3.setText("Register");
+        jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton3.setOpaque(true);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
             }
         });
 
@@ -167,7 +185,7 @@ public class LoginGUI extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
+                .addGap(54, 54, 54)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(jLabel4)
@@ -177,20 +195,23 @@ public class LoginGUI extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jTextField1)
+                                        .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
+                                        .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)))
+                                .addComponent(jPasswordField1))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField1)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.LEADING, 0, 269, Short.MAX_VALUE)
-                                .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.LEADING)))))
-                .addContainerGap(88, Short.MAX_VALUE))
+                                .addComponent(jCheckBox1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jCheckBox2)))))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,9 +220,9 @@ public class LoginGUI extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(37, 37, 37)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addGap(7, 7, 7)
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -211,16 +232,18 @@ public class LoginGUI extends javax.swing.JFrame {
                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(jLabel7)
-                .addGap(10, 10, 10)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCheckBox1)
+                    .addComponent(jCheckBox2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(57, 57, 57))
         );
 
@@ -229,82 +252,13 @@ public class LoginGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        
-        name = jTextField1.getText();
-        
-        username = jTextField2.getText();
-                email = jTextField3.getText();
-//        Object selectedItem = jComboBox2.getSelectedItem();
-//         role = selectedItem.toString();
-          char[] passwordChars = jPasswordField1.getPassword();
-
-    // Convert the character array to a String
-         password = new String(passwordChars);
-         if(flag == false)
-         {
-            if (name == null || name.trim().isEmpty() || username == null || username.trim().isEmpty() || email == null || email.trim().isEmpty() || password == null || password.trim().isEmpty())
-                JOptionPane.showMessageDialog(this, " Fill All the Text fields !", "Error", JOptionPane.ERROR_MESSAGE);
-            else
-            {
-                
-                System.out.println("The value in jTextField1 is: " + username);
-
-                if(db.isHavingUserData(username)== null)
-                {
-                    datafromframe = new Userdata(name,username,role,email,password);
-                    System.out.println(username + " Inserted in the Database");
-                    db.insertuserdataindb(datafromframe);
-                    JOptionPane.showMessageDialog(this, "Weolcome " + name + " !!"  , "Welcome to CODEFEST", JOptionPane.INFORMATION_MESSAGE);
-                }
-                else
-                {
-                    JOptionPane.showMessageDialog(this, "Try a different Username ", "Error", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-         }
-         else
-         {
-             username = jTextField1.getText();
-             password = jTextField2.getText();
-             Userdata user = db.isHavingUserData(username);
-             
-                          
-             
-             if(user == null)
-             {
-                 JOptionPane.showMessageDialog(this, " No User Found !!!", "Error", JOptionPane.ERROR_MESSAGE);
-                 return;
-             }
-                          
-             if(MainRunner.comparestring(user.username, username))
-             {
-                 if(MainRunner.comparestring(password, user.password))
-                 {
-                     
-                     JOptionPane.showMessageDialog(this, "Welcome " + user.name + " !!"  , "Welcome to CODEFEST", JOptionPane.INFORMATION_MESSAGE);
-                 }
-                 else
-                 {
-                     JOptionPane.showMessageDialog(this, " Wrong Password!", "Error", JOptionPane.ERROR_MESSAGE);
-                 }
-             }
-             else
-             {
-                 JOptionPane.showMessageDialog(this, " No User Found !!!", "Error", JOptionPane.ERROR_MESSAGE);
-             }
-             
-         }
-    }//GEN-LAST:event_jButton1ActionPerformed
     
     
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
          
 
-    // Check if the text is empty (null or has zero length)
+    //  Check if the text is empty (null or has zero length)
     if (name == null || name.trim().isEmpty()) {
         // Show a message
         JOptionPane.showMessageDialog(this, "Text field is empty!", "Error", JOptionPane.ERROR_MESSAGE);
@@ -352,10 +306,12 @@ public class LoginGUI extends javax.swing.JFrame {
             jLabel7.setText("");
             jLabel8.setText("");
             jTextField3.setVisible(false);
-            jComboBox2.setVisible(false);
+//            jComboBox2.setVisible(false);
+            jCheckBox1.setVisible(false);
+            jCheckBox2.setVisible(false);
             jPasswordField1.setVisible(false);
-            jButton1.setBackground(Color.CYAN);
-            jButton1.setText("Login");
+            jButton3.setBackground(Color.CYAN);
+            jButton3.setText("Login");
             jButton2.setBackground(Color.yellow);
             jButton2.setText("Want to Register");
             
@@ -375,25 +331,118 @@ public class LoginGUI extends javax.swing.JFrame {
             jLabel7.setText("Role");
             jLabel8.setText("Password");
             jTextField3.setVisible(true);
-            jComboBox2.setVisible(true);
+//            jComboBox2.setVisible(true);
+            jCheckBox1.setVisible(true);
+            jCheckBox2.setVisible(true);
+   
             jPasswordField1.setVisible(true);
-            jButton1.setBackground(Color.yellow);
-            jButton1.setText("Resister");
+            jButton3.setBackground(Color.yellow);
+            jButton3.setText("Resister");
             jButton2.setBackground(Color.cyan);
             jButton2.setText("Want to Login");
         }
         
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }
+    //GEN-LAST:event_jButton2ActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+         jCheckBox2.setSelected(false);//TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
         // TODO add your handling code here:
-        if(evt == null)
-        {
-            System.out.println("The value in jTextField1 is: " );
-            return;
-        }
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+        jCheckBox1.setSelected(false);
+        
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       
+       
+        name = jTextField1.getText();
+        
+        username = jTextField2.getText();
+        email = jTextField3.getText();
+        boolean value1 = jCheckBox1.isSelected();
+        boolean value2 = jCheckBox2.isSelected();
+        // System.out.println("Asad");
+
+                // System.out.println("Checkbox 1 is selected: " + value1);
+                // System.out.println("Checkbox 2 is selected: " + value2);
+//        Object selectedItem = jComboBox2.getSelectedItem();
+//         role = selectedItem.toString();
+          char[] passwordChars = jPasswordField1.getPassword();
+
+    // Convert the character array to a String
+         password = new String(passwordChars);
+         if(flag == false)
+         {
+            if (name == null || name.trim().isEmpty() || username == null || username.trim().isEmpty() || email == null || email.trim().isEmpty() || (value1 == false && value2 == false)|| password == null || password.trim().isEmpty())
+                JOptionPane.showMessageDialog(this, " Fill All the Text fields !", "Error", JOptionPane.ERROR_MESSAGE);
+            else
+            {
+                
+                // System.out.println("The value in jTextField1 is: " + username);
+
+                if(db.isHavingUserData(username)== null)
+                {
+                    if(value1 == true)
+                    {
+                        role = new String("Participant");
+                    }
+                    else
+                        role = new String("Host");
+                    // System.out.println(role);
+                    datafromframe = new Userdata(name,username,role,email,password);
+                    //Userdata data = new Userdata("Saad","saadi","1","1","1");
+                    System.out.println(username + " Inserted in the Database");
+                    db.insertuserdataindb(datafromframe);
+                    JOptionPane.showMessageDialog(this, "Weolcome " + name + " !!"  , "Welcome to CODEFEST", JOptionPane.INFORMATION_MESSAGE);
+                    displayoff();
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(this, "Try a different Username ", "Error", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+         }
+         else
+         {
+             username = jTextField1.getText();
+             password = jTextField2.getText();
+             Userdata user = db.isHavingUserData(username);
+             
+                          
+             
+             if(user == null)
+             {
+                 JOptionPane.showMessageDialog(this, " No User Found !!!", "Error", JOptionPane.ERROR_MESSAGE);
+                 return;
+             }
+                          
+             if(MainRunner.comparestring(user.username, username))
+             {
+                 if(MainRunner.comparestring(password, user.password))
+                 {
+                     username = new String(user.username);
+                     role =new String(user.role);
+                     JOptionPane.showMessageDialog(this, "Welcome " + user.name + " !!"  , "Welcome to CODEFEST", JOptionPane.INFORMATION_MESSAGE);
+                     displayoff();
+                 }
+                 else
+                 {
+                     JOptionPane.showMessageDialog(this, " Wrong Password!", "Error", JOptionPane.ERROR_MESSAGE);
+                 }
+             }
+             else
+             {
+                 JOptionPane.showMessageDialog(this, " No User Found !!!", "Error", JOptionPane.ERROR_MESSAGE);
+             }
+             
+         }       
+          // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -420,23 +469,66 @@ public class LoginGUI extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(LoginGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-                        this.setVisible(true);
+      
+        this.setVisible(true);
            
     }
     
-    public void displayoff()
-    {System.out.println("The value in jTextFie");
-        this.setVisible(false);
+    private void displayoff()
+    {
+        // System.out.println("The value in jTextFie");
+        // this.setVisible(false);
+        // System.out.println(role);
+        MainRunner.Frontend(username,role);
+        
+    }
+    private void initCustomUI() {
+        jPanel1.setBackground(new Color(240, 240, 240));
+        jPanel2.setBackground(new Color(0, 173, 239));
+
+        // Labels and fonts
+        jLabel1.setFont(new Font("Arial", Font.BOLD, 24));
+        jLabel2.setFont(new Font("Arial", Font.BOLD, 48));
+        jLabel3.setFont(new Font("Arial", Font.BOLD, 24));
+        jLabel4.setFont(new Font("Arial", Font.PLAIN, 14));
+        jLabel5.setFont(new Font("Arial", Font.PLAIN, 14));
+        jLabel6.setFont(new Font("Arial", Font.PLAIN, 14));
+        jLabel7.setFont(new Font("Arial", Font.PLAIN, 14));
+        // jLabel8.setFont(new Font("Arial", Font.PLAIN, 14);
+
+        // Textfields and buttons
+        jTextField1.setFont(new Font("Arial", Font.PLAIN, 14));
+        jTextField2.setFont(new Font("Arial", Font.PLAIN, 14));
+        jTextField3.setFont(new Font("Arial", Font.PLAIN, 14));
+        jPasswordField1.setFont(new Font("Arial", Font.PLAIN, 14));
+        jButton3.setFont(new Font("Arial", Font.BOLD, 16));
+        // jButton2.setFont(new Font("Arial", Font.PLAIN, 16);
+
+        // Customize button colors
+        jButton3.setBackground(new Color(255, 102, 102)); // Red
+        jButton2.setBackground(new Color(102, 153, 255));  // Blue
+
+        // Button hover and drag effect
+        
+        
     }
 
+    private void jButton1MouseEntered(MouseEvent evt) {
+        jButton3.setBackground(new Color(255, 51, 51)); // Lighter red on hover
+    }
+
+    private void jButton1MouseExited(MouseEvent evt) {
+        jButton3.setBackground(new Color(255, 102, 102)); // Restore original red
+        
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
