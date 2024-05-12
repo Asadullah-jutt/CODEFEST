@@ -556,7 +556,7 @@ public class database {
     // Altas cluster specifics. Be sure it includes
     // a valid username and password! Note that in a production environment,
     // you do not want to store your password in plain-text here.
-    ConnectionString mongoUri = new ConnectionString("mongodb+srv://admin:admin@mongodb.wos6mf4.mongodb.net/");
+    ConnectionString mongoUri = new ConnectionString("mongodb+srv://admin:admin@codefest.7xffv6e.mongodb.net/");
 
     // Provide the name of the database and collection you want to use.
     // If they don't already exist, the driver and Atlas will create them
